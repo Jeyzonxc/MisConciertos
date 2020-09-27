@@ -10,22 +10,113 @@
     android:orientation="vertical">
 
 
-
-    <TextView
-        android:id="@+id/idGenero"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Genero Musical:"
-        android:textSize="25sp"
-        android:textColor="@color/blanco_text"
-        android:layout_marginTop="30dp">
+        android:orientation="horizontal">
 
-    </TextView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/letraBase"
+            android:textColor="@color/blanco_text"
+            android:text="@string/nombre_artista"></TextView>
 
-    <Spinner
-        android:id="@+id/idSpinnerGenero"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Nombre del artista">
 
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/marginTopBase">
+
+        <TextView
+            android:id="@+id/idGenero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/genero_musical"
+            android:textColor="@color/blanco_text"
+            android:textSize="@dimen/letraBase">
+
+        </TextView>
+
+        <Spinner
+            android:id="@+id/idSpinnerGenero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/marginTopBase">
+
+        <TextView
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/valor_entrada"
+            android:textColor="@color/blanco_text"
+            android:textSize="@dimen/letraBase">
+
+        </TextView>
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:hint="Ingrese el Valor">
+
+        </EditText>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/marginTopBase">
+
+        <TextView
+            android:id="@+id/idCalificación"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/calificacion"
+            android:textColor="@color/blanco_text"
+            android:textSize="@dimen/letraBase">
+
+        </TextView>
+
+        <Spinner
+            android:id="@+id/idSpinnerCalificacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopBase">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/letraBase"
+            android:textColor="@color/colorAccent"
+            android:background="@color/colorPrimaryDark"
+            android:text="@string/registrar_btn"></Button>
+
+    </LinearLayout>
 
 </LinearLayout>
+
+

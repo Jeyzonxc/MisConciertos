@@ -14,10 +14,13 @@ public class MainActivity extends AppCompatActivity {
 
     TextView genero;
     Spinner comboGenero;
+    TextView calificaciones;
+    Spinner comboCalificaciones;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         genero= (TextView) findViewById(R.id.idGenero);
         comboGenero= (Spinner) findViewById(R.id.idSpinnerGenero);
@@ -30,13 +33,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(parent.getContext(),
-                "Genero Musical:" +parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
+                        "Genero Musical:" +parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
 
                 genero.setText("Genero Musical:"+parent.getItemAtPosition(position).toString());
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        calificaciones= (TextView) findViewById(R.id.idCalificación);
+        comboCalificaciones= (Spinner) findViewById(R.id.idSpinnerCalificacion);
+
+        ArrayAdapter<CharSequence> adapter1=ArrayAdapter.createFromResource(this,R.array.calificacion,android.R.layout.simple_spinner_item);
+
+        comboCalificaciones.setAdapter(adapter1);
+
+        comboCalificaciones.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(parent.getContext(),
+                        "Calificación" +parent.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
+                calificaciones.setText("Calificación:"+parent.getItemAtPosition(position).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapter1View) {
 
             }
         });

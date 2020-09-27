@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MisConciertosApp</string>
+    <string name="genero_musical">Genero Musical:</string>
+    <string name="nombre_artista">Nombre del Artista:</string>
+    <string name="valor_entrada">Valor de entrada:</string>
+    <string name="calificacion">Calificación</string>
+    <string name="registrar_btn">Registrar</string>
 </resources>
