@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/marginTopBase">
 
         <TextView
             android:layout_width="match_parent"
@@ -30,6 +31,42 @@
             android:hint="Nombre del artista">
 
         </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/marginTopBase">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/letraBase"
+            android:textColor="@color/blanco_text"
+            android:text="@string/fecha_evento"></TextView>
+        <TextView
+            android:id="@+id/idTextViewfecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="@dimen/letraBase"
+            android:textColor="@color/blanco_text"
+            android:text="dd/mm/yy"></TextView>
+
+
+        <Button
+            android:id="@+id/idDatePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="abrirCalendario"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:text="Ingresar fecha"></Button>
+
+
     </LinearLayout>
 
     <LinearLayout
