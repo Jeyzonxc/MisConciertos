@@ -15,6 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -96,26 +97,32 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 List<String> errores= new ArrayList<>();
-                String nombre = "";
-                int valor = 0;
+                String nombreStr = nombre.getText().toString().trim() ;
+                String valorStr = valor.getText().toString().trim();
+                String fechaStr = fecha.getText().toString().trim();
+                int valor1;
 
-                try{
-                    if (nombre.isEmpty()){
 
-                    }
+                    if(nombreStr.isEmpty()){
 
-                }catch(Exception e){
-                    errores.add("El nombre debe empezar con mayuscula y  ser de min 3 caracteres y max 30");
+                    errores.add("-Debe ingresar un nombre");
                 }
 
                 try {
-
-                    if(valor < 0 ){
+                    valor1 = Integer.parseInt(valorStr);
+                    if (valor1 <0){
                         throw new NumberFormatException();
                     }
                 }catch (NumberFormatException ex){
-                    errores.add("-Debe ingresar un valor");
+                    errores.add("- Debe ingresar un valor ");
                 }
+
+                    if(fechaStr.isEmpty()){
+
+
+                    errores.add("-Debe ingresar un fecha");
+                }
+
 
                 if(errores.isEmpty()){
 
