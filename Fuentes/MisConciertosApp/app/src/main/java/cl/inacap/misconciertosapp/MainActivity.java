@@ -2,32 +2,46 @@ package cl.inacap.misconciertosapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView genero;
-    Spinner comboGenero;
-    TextView calificaciones;
-    Spinner comboCalificaciones;
-    TextView fecha;
+    private TextView genero;
+    private Spinner comboGenero;
+    private TextView calificaciones;
+    private Spinner comboCalificaciones;
+    private TextView fecha;
+    private EditText nombre;
+    private EditText valor;
+    private Button registrarBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        fecha = findViewById(R.id.idTextViewfecha);
+
+        this.fecha = findViewById(R.id.idTextViewfecha);
+        this.nombre = findViewById(R.id.idNombreTxt);
+        this.valor = findViewById(R.id.idValor);
+        this.registrarBtn = findViewById(R.id.idBtnR);
+
+
+
 
 
 
@@ -75,6 +89,58 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        this.registrarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+
+
+            public void onClick(View view) {
+                List<String> errores= new ArrayList<>();
+                String nombre = "";
+                int valor = 0;
+
+                try{
+                    if (nombre.isEmpty()){
+
+                    }
+
+                }catch(Exception e){
+                    errores.add("El nombre debe empezar con mayuscula y  ser de min 3 caracteres y max 30");
+                }
+
+                try {
+
+                    if(valor < 0 ){
+                        throw new NumberFormatException();
+                    }
+                }catch (NumberFormatException ex){
+                    errores.add("-Debe ingresar un valor");
+                }
+
+                if(errores.isEmpty()){
+
+
+                }else{
+                    mostrarErrores(errores);
+                }
+
+            }
+
+            private void mostrarErrores(List<String>errores){
+
+                String mensaje ="";
+                for (String e: errores){
+                    mensaje+="-"+e+"\n";
+                }
+
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
+                alertBuilder.setTitle("Error de validacion").setMessage(mensaje).setPositiveButton("acceptar",null).create().show();
+            }
+        });
+
+
+
+
     }
 
 
@@ -94,4 +160,8 @@ public class MainActivity extends AppCompatActivity {
         }, anio, mes, dia);
         dpd.show();
     }
+
+
+
+
 }

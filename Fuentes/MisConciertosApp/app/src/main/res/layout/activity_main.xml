@@ -25,6 +25,7 @@
             android:text="@string/nombre_artista"></TextView>
 
         <EditText
+            android:id="@+id/idNombreTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,15 +47,16 @@
             android:textSize="@dimen/letraBase"
             android:textColor="@color/blanco_text"
             android:text="@string/fecha_evento"></TextView>
+
+
         <TextView
             android:id="@+id/idTextViewfecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:textSize="@dimen/letraBase"
+            android:text="dd/mm/yy"
             android:textColor="@color/blanco_text"
-            android:text="dd/mm/yy"></TextView>
-
+            android:textSize="@dimen/letraBase"></TextView>
 
         <Button
             android:id="@+id/idDatePicker"
@@ -105,12 +107,14 @@
             android:textSize="@dimen/letraBase">
 
         </TextView>
+
         <EditText
-            android:layout_weight="1"
+            android:id="@+id/idValor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
-            android:hint="Ingrese el Valor">
+            android:layout_weight="1"
+            android:hint="Ingrese el Valor"
+            android:inputType="numberDecimal">
 
         </EditText>
     </LinearLayout>
@@ -145,15 +149,32 @@
 
 
         <Button
+            android:id="@+id/idBtnR"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="@dimen/letraBase"
+            android:onClick="Registrar"
             android:textColor="@color/colorAccent"
             android:background="@color/colorPrimaryDark"
             android:text="@string/registrar_btn"></Button>
 
     </LinearLayout>
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopBase"
+        android:gravity="center"
+        android:text="@string/lista_conciertos"
+        android:textSize="@dimen/letraBase"
+        android:textColor="@color/primary_text"
+        android:background="@color/colorAccent"
+        ></TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
 </LinearLayout>
 
 
