@@ -173,6 +173,7 @@
         ></TextView>
 
     <ListView
+        android:id="@+id/idListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 </LinearLayout>

@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +23,8 @@ import java.time.Clock;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import cl.inacap.misconciertosapp.dto.misConciertosDto;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText nombre;
     private EditText valor;
     private Button registrarBtn;
+    private ListView myListView;
+    private List <misConciertosDto> lista;
+
+    ListAdapter myAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
         this.nombre = findViewById(R.id.idNombreTxt);
         this.valor = findViewById(R.id.idValor);
         this.registrarBtn = findViewById(R.id.idBtnR);
+        this. myListView = findViewById(R.id.idListView);
 
+        
 
 
 
@@ -101,8 +113,12 @@ public class MainActivity extends AppCompatActivity {
                 String valorStr = valor.getText().toString().trim();
                 String fechaStr = fecha.getText().toString().trim();
                 int valor1;
-
-
+                
+                
+                
+                
+                
+                
                     if(nombreStr.isEmpty()){
 
                     errores.add("-Debe ingresar un nombre");
@@ -117,18 +133,19 @@ public class MainActivity extends AppCompatActivity {
                     errores.add("- Debe ingresar un valor ");
                 }
 
-                    if(fechaStr.isEmpty()){
-
-
-                    errores.add("-Debe ingresar un fecha");
-                }
-
-
                 if(errores.isEmpty()){
+                    misConciertosDto conciertos = new misConciertosDto();
+                    conciertos.setNombreArtista(nombreStr);
 
+                    myAdapter = new adapter (MainActivity.this, R.layout.item,lista );
+
+
+                    myListView.setAdapter(myAdapter);
+                    Toast.makeText(MainActivity.this, "Se registro exitosamente.", Toast.LENGTH_SHORT).show();
 
                 }else{
                     mostrarErrores(errores);
+
                 }
 
             }

@@ -2,5 +2,6 @@
 <resources>
     <dimen name="marginTopBase">30dp</dimen>
     <dimen name="letraBase">25sp</dimen>
+    <dimen name="imgBase">40dp</dimen>
 
 </resources>
